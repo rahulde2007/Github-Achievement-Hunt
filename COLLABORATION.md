@@ -1,9 +1,8 @@
 # Collaboration Guide
 
-This document explains how contributors can collaborate on this project.
+This project welcomes contributions and constructive reviews.
 
-- Create a separate branch for each change.
-- Describe your changes clearly.
-- Open a pull request for review.
+- Make changes on a separate branch.
+- Explain each change clearly.
+- Review pull requests before merging.
 - Credit contributors for their actual contributions.
-- Contributors should review and improve each other's changes.
