@@ -505,3 +505,6 @@ The [GitHub profile reference](https://docs.github.com/en/account-and-profile/re
 *Achievement names, requirements, tiers, and availability may change. GitHub's live profile and current official guidance take precedence over this guide.*
 
 </div>
+<p align="center">
+  This project is continuously evolving as I explore GitHub features and open-source contributions.
+</p>
