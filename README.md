@@ -496,8 +496,8 @@ The [GitHub profile reference](https://docs.github.com/en/account-and-profile/re
 - Image `alt` text is provided throughout. If an external animation service is unavailable, the static title, tagline, navigation, and README content remain readable.
 - GitHub and the animation provider control their hosted assets. If an image or animation stops loading, replace it only after verifying a trustworthy source.
 
----
 
+---
 <div align="center">
 
 ### Build useful things. Collaborate generously. Keep the work honest.
