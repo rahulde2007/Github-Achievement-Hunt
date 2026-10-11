@@ -498,7 +498,7 @@ The [GitHub profile reference](https://docs.github.com/en/account-and-profile/re
 
 ---
 
-<div align="center">
+<div align=" center ">
 
 ### Build useful things. Collaborate generously. Keep the work honest.
 
