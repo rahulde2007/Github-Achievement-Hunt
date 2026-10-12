@@ -1,5 +1,6 @@
 import { achievements } from "./achievements.js";
 import { getAchievementCategories, filterAchievements } from "./filters.js";
+import { getAchievementGuide } from "./mission-details.js";
 import { renderAchievementCards } from "./render.js";
 
 function getRequiredElement(selector) {
@@ -77,6 +78,19 @@ function initializeAchievementExplorer() {
   const resultsSummary = getRequiredElement("#results-summary");
   const datasetCount = getRequiredElement("#dataset-count");
   const resetButton = getRequiredElement("#reset-explorer");
+  const achievementDialog = getRequiredElement("#achievement-dialog");
+  const dialogCloseButton = getRequiredElement("#dialog-close");
+  const dialogBadge = getRequiredElement("#dialog-badge");
+  const dialogCategory = getRequiredElement("#dialog-category");
+  const dialogTitle = getRequiredElement("#dialog-title");
+  const dialogVerification = getRequiredElement("#dialog-verification");
+  const dialogDescription = getRequiredElement("#dialog-description");
+  const dialogAvailability = getRequiredElement("#dialog-availability");
+  const dialogRequirements = getRequiredElement("#dialog-requirements");
+  const dialogSteps = getRequiredElement("#dialog-steps");
+  const dialogSource = getRequiredElement("#dialog-source");
+  const dialogSourceLabel = getRequiredElement("#dialog-source-label");
+  let currentDialogAchievementId = "";
 
   const categoryOptions = document.createDocumentFragment();
 
@@ -90,6 +104,48 @@ function initializeAchievementExplorer() {
   categoryFilter.append(categoryOptions);
   datasetCount.textContent = `${achievements.length} achievements in this guide`;
 
+  function updateAchievementDialog(achievement) {
+    const guide = getAchievementGuide(achievement.id);
+    const steps = document.createDocumentFragment();
+
+    guide.steps.forEach((step) => {
+      const item = document.createElement("li");
+      item.textContent = step;
+      steps.append(item);
+    });
+
+    dialogBadge.src = achievement.artwork.path;
+    dialogBadge.alt = achievement.artwork.alt;
+    dialogCategory.textContent = achievement.category;
+    dialogTitle.textContent = achievement.name;
+    dialogVerification.textContent = "Profile status: unknown — not connected or verified";
+    dialogDescription.textContent = achievement.description;
+    dialogAvailability.textContent = achievement.availability;
+    dialogRequirements.textContent = `${guide.exactRequirement} ${achievement.requirements}`;
+    dialogSteps.replaceChildren(steps);
+    dialogSource.href = achievement.source.url;
+    dialogSource.setAttribute(
+      "aria-label",
+      `${achievement.source.label} (opens in a new tab)`,
+    );
+    dialogSourceLabel.textContent = achievement.source.label;
+  }
+
+  function openAchievementDialog(achievementId) {
+    const achievement = achievements.find((item) => item.id === achievementId);
+
+    if (!achievement) {
+      throw new RangeError(`Unknown achievement: ${achievementId}`);
+    }
+
+    currentDialogAchievementId = achievementId;
+    updateAchievementDialog(achievement);
+
+    if (!achievementDialog.open) {
+      achievementDialog.showModal();
+    }
+  }
+
   function updateExplorer() {
     const results = filterAchievements(achievements, {
       query: searchInput.value,
@@ -99,6 +155,16 @@ function initializeAchievementExplorer() {
     });
 
     renderAchievementCards(catalogue, results, emptyState);
+
+    if (achievementDialog.open && currentDialogAchievementId) {
+      const activeAchievement = achievements.find(
+        (item) => item.id === currentDialogAchievementId,
+      );
+
+      if (activeAchievement) {
+        updateAchievementDialog(activeAchievement);
+      }
+    }
 
     const summaryParts = [
       results.length === 0
@@ -121,7 +187,6 @@ function initializeAchievementExplorer() {
 
     summaryParts.push(`Sorted by ${sortOrder.options[sortOrder.selectedIndex].text}.`);
     resultsSummary.textContent = summaryParts.join(" ");
-
     clearSearchButton.hidden = searchInput.value.length === 0;
   }
 
@@ -134,6 +199,68 @@ function initializeAchievementExplorer() {
   categoryFilter.addEventListener("change", updateExplorer);
   statusFilter.addEventListener("change", updateExplorer);
   sortOrder.addEventListener("change", updateExplorer);
+  catalogue.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    const card = event.target.closest(".achievement-card");
+
+    if (!(card instanceof HTMLElement) || !catalogue.contains(card)) {
+      return;
+    }
+
+    if (event.target.closest("a")) {
+      return;
+    }
+
+    const detailsButton = event.target.closest("[data-view-details]");
+
+    if (detailsButton instanceof HTMLButtonElement) {
+      event.stopPropagation();
+      openAchievementDialog(detailsButton.dataset.viewDetails);
+      return;
+    }
+
+    if (event.target.closest("button")) {
+      return;
+    }
+
+    openAchievementDialog(card.dataset.achievementId);
+  });
+  catalogue.addEventListener("keydown", (event) => {
+    if (
+      !(event.target instanceof HTMLElement) ||
+      !event.target.matches(".achievement-card") ||
+      (event.key !== "Enter" && event.key !== " ")
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    openAchievementDialog(event.target.dataset.achievementId);
+  });
+  dialogCloseButton.addEventListener("click", () => {
+    achievementDialog.close();
+  });
+  achievementDialog.addEventListener("click", (event) => {
+    if (event.target === achievementDialog) {
+      achievementDialog.close();
+    }
+  });
+  achievementDialog.addEventListener("close", () => {
+    const opener = catalogue.querySelector(
+      `[data-achievement-id="${CSS.escape(currentDialogAchievementId)}"]`,
+    );
+
+    if (opener instanceof HTMLElement) {
+      opener.focus();
+    } else {
+      searchInput.focus();
+    }
+
+    currentDialogAchievementId = "";
+  });
   resetButton.addEventListener("click", () => {
     searchInput.value = "";
     categoryFilter.value = "all";

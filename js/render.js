@@ -36,33 +36,12 @@ function createAchievementCard(achievement) {
     "achievement-description",
     achievement.description,
   );
-  const details = document.createElement("dl");
-  const difficultyTerm = createTextElement("dt", "", "Difficulty");
-  const difficultyValue = createTextElement(
-    "dd",
-    "achievement-difficulty",
-    achievement.difficulty ?? "Not rated",
-  );
-  const requirement = document.createElement("div");
-  const requirementLabel = createTextElement(
-    "span",
-    "requirement-label",
-    "Commonly associated activity",
-  );
-  const requirementText = createTextElement(
-    "p",
-    "requirement-text",
-    achievement.requirements,
-  );
-  const availability = createTextElement(
-    "p",
-    "availability-note",
-    achievement.availability,
-  );
-  const source = document.createElement("a");
-  const sourceArrow = createTextElement("span", "", "↗");
+  const detailsButton = document.createElement("button");
 
   card.className = "achievement-card";
+  card.dataset.achievementId = achievement.id;
+  card.tabIndex = 0;
+  card.setAttribute("aria-labelledby", `achievement-title-${achievement.id}`);
 
   header.className = "achievement-card-header";
   logoFrame.className = "achievement-logo-frame";
@@ -84,22 +63,17 @@ function createAchievementCard(achievement) {
   );
   logo.src = achievement.artwork.path;
   labels.className = "achievement-labels";
-  details.className = "achievement-details";
-  requirement.className = "achievement-requirement";
-  source.className = "achievement-source";
-  source.href = achievement.source.url;
-  source.target = "_blank";
-  source.rel = "noopener noreferrer";
-  source.append(document.createTextNode(achievement.source.label), sourceArrow);
-  sourceArrow.setAttribute("aria-hidden", "true");
-  source.setAttribute("aria-label", `${achievement.source.label} (opens in a new tab)`);
+  title.id = `achievement-title-${achievement.id}`;
+  detailsButton.className = "achievement-details-button";
+  detailsButton.type = "button";
+  detailsButton.dataset.viewDetails = achievement.id;
+  detailsButton.setAttribute("aria-label", `View ${achievement.name} instructions`);
+  detailsButton.textContent = "View instructions";
 
   labels.append(category, status);
   logoFrame.append(logo);
   header.append(logoFrame, labels);
-  details.append(difficultyTerm, difficultyValue);
-  requirement.append(requirementLabel, requirementText);
-  card.append(header, title, description, details, requirement, availability, source);
+  card.append(header, title, description, detailsButton);
 
   return card;
 }
@@ -133,15 +107,9 @@ export function renderAchievementCards(container, achievements, emptyState) {
       typeof achievement.name !== "string" ||
       typeof achievement.description !== "string" ||
       typeof achievement.category !== "string" ||
-      typeof achievement.requirements !== "string" ||
-      typeof achievement.availability !== "string" ||
       !achievement.artwork ||
       typeof achievement.artwork.path !== "string" ||
-      typeof achievement.artwork.alt !== "string" ||
-      typeof achievement.artwork.source !== "string" ||
-      !achievement.source ||
-      typeof achievement.source.label !== "string" ||
-      typeof achievement.source.url !== "string"
+      typeof achievement.artwork.alt !== "string"
     ) {
       throw new TypeError("Achievement data is missing required card fields.");
     }

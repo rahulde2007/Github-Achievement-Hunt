@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/explorer.css" />
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
@@ -50,7 +51,6 @@
           <a href="#home">Home</a>
           <a href="#achievements">Achievements</a>
           <a href="#how-it-works">How It Works</a>
-          <a href="#progress">Progress</a>
           <a
             class="nav-github-link"
             href="https://github.com/rahulde2007/Github-Achievement-Hunt"
@@ -92,64 +92,6 @@
               An educational guide, not a promise. GitHub determines achievement eligibility.
             </p>
           </div>
-
-          <aside class="hero-visual" aria-label="Illustration of an achievement learning dashboard">
-            <div class="visual-orbit orbit-one" aria-hidden="true"></div>
-            <div class="visual-orbit orbit-two" aria-hidden="true"></div>
-            <div class="dashboard-card glass-panel">
-              <div class="dashboard-topbar">
-                <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-                <span class="dashboard-label">JOURNEY OVERVIEW</span>
-                <span class="dashboard-menu" aria-hidden="true">···</span>
-              </div>
-              <div class="dashboard-intro">
-                <div>
-                  <p class="dashboard-overline">YOUR NEXT CHAPTER</p>
-                  <h2>Built by doing.</h2>
-                </div>
-                <span class="journey-mark" aria-hidden="true">
-                  <span class="journey-mark-core"></span>
-                </span>
-              </div>
-              <div class="journey-path" aria-hidden="true">
-                <span class="path-line"></span>
-                <span class="path-stop stop-one"><i></i></span>
-                <span class="path-stop stop-two"><i></i></span>
-                <span class="path-stop stop-three"><i></i></span>
-              </div>
-              <div class="path-labels" aria-hidden="true">
-                <span>Learn</span><span>Contribute</span><span>Discover</span>
-              </div>
-              <div class="preview-stack">
-                <article class="preview-card preview-card-primary">
-                  <span class="preview-symbol symbol-purple" aria-hidden="true">✳</span>
-                  <span class="preview-copy">
-                    <span class="preview-title">Explore the guide</span>
-                    <span class="preview-subtitle">Find your starting point</span>
-                  </span>
-                  <span class="preview-arrow" aria-hidden="true">↗</span>
-                </article>
-                <article class="preview-card preview-card-secondary">
-                  <span class="preview-symbol symbol-blue" aria-hidden="true">⌘</span>
-                  <span class="preview-copy">
-                    <span class="preview-title">Make it meaningful</span>
-                    <span class="preview-subtitle">The work matters most</span>
-                  </span>
-                  <span class="preview-arrow" aria-hidden="true">↗</span>
-                </article>
-              </div>
-              <p class="dashboard-footnote">
-                <span aria-hidden="true">✦</span>
-                No shortcuts. Just your journey.
-              </p>
-            </div>
-            <div class="floating-label floating-label-top" aria-hidden="true">
-              <span class="floating-label-dot"></span> Learn at your pace
-            </div>
-            <div class="floating-label floating-label-bottom" aria-hidden="true">
-              <span class="floating-label-glyph">↗</span> Built around real contributions
-            </div>
-          </aside>
         </div>
         <a class="scroll-cue" href="#achievements">
           <span class="scroll-cue-line" aria-hidden="true"></span>
@@ -171,7 +113,7 @@
             </div>
             <p class="section-description">
               Browse GitHub profile achievement names and the activity commonly associated with
-              them. Linked official docs cover the related GitHub features, not badge eligibility.
+              them. Linked official docs cover related GitHub features, not badge eligibility.
             </p>
           </div>
           <div class="explorer-toolbar">
@@ -294,37 +236,55 @@
         </div>
       </section>
 
-      <section class="progress-section section-shell" id="progress" aria-labelledby="progress-title">
-        <div class="container">
-          <div class="progress-panel glass-panel">
-            <div class="progress-copy">
-              <p class="eyebrow"><span class="section-index">03</span> Your space</p>
-              <h2 id="progress-title">A journey only<br />you can define.</h2>
-              <p>
-                A personal progress space is planned for a future phase. For now, explore at your
-                own pace—your achievements belong to your GitHub profile.
-              </p>
-              <a class="button button-secondary" href="#achievements">
-                Back to the explorer <span aria-hidden="true">↑</span>
-              </a>
-            </div>
-            <div class="progress-illustration" aria-hidden="true">
-              <div class="progress-ring ring-back"></div>
-              <div class="progress-ring ring-front"></div>
-              <span class="progress-center">
-                <span class="progress-spark">✳</span>
-                <span>Your pace</span>
-              </span>
-              <span class="progress-orbit-dot dot-one"></span>
-              <span class="progress-orbit-dot dot-two"></span>
-              <span class="progress-orbit-dot dot-three"></span>
-            </div>
-            <span class="progress-watermark" aria-hidden="true">GH</span>
+    </main>
+
+    <dialog
+      class="achievement-dialog"
+      id="achievement-dialog"
+      aria-labelledby="dialog-title"
+      aria-describedby="dialog-description"
+    >
+      <div class="achievement-dialog-panel">
+        <button
+          class="dialog-close"
+          id="dialog-close"
+          type="button"
+          aria-label="Close achievement details"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="dialog-achievement-heading">
+          <span class="dialog-badge-frame">
+            <img class="dialog-badge" id="dialog-badge" alt="" width="120" height="120" />
+          </span>
+          <div class="dialog-heading-copy">
+            <p class="eyebrow" id="dialog-category"></p>
+            <h2 id="dialog-title"></h2>
+            <p class="dialog-verification" id="dialog-verification"></p>
           </div>
         </div>
-      </section>
+        <p class="dialog-description" id="dialog-description"></p>
+        <p class="dialog-availability" id="dialog-availability"></p>
 
-    </main>
+        <section class="dialog-section" aria-labelledby="dialog-requirement-title">
+          <h3 id="dialog-requirement-title">Exact GitHub requirements</h3>
+          <p id="dialog-requirements"></p>
+        </section>
+
+        <section class="dialog-section" aria-labelledby="dialog-steps-title">
+          <h3 id="dialog-steps-title">A responsible path</h3>
+          <ol class="dialog-steps" id="dialog-steps"></ol>
+        </section>
+
+        <p class="dialog-honesty-note">
+          These steps are general guidance, not a guarantee of an award. GitHub determines
+          achievement eligibility, and some requirements are not publicly documented.
+        </p>
+        <a class="achievement-source dialog-source" id="dialog-source" target="_blank" rel="noopener noreferrer">
+          <span id="dialog-source-label"></span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <div class="container footer-inner">
