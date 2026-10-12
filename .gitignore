@@ -1,0 +1,8 @@
+# Ignore every repository-root entry, including hidden files and directories.
+/*
+
+# Keep the repository ignore file visible and these documents trackable.
+!/.gitignore
+!/README.md
+!/CODE_OF_CONDUCT.md
+!/CONTRIBUTING.md
