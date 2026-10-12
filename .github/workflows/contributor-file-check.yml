@@ -1,0 +1,47 @@
+name: Contributor file check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  contributor-file-check:
+    name: Restrict pull request changes to contributor file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Check changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          changed_files_file="$(mktemp)"
+          trap 'rm -f "$changed_files_file"' EXIT
+          git diff --name-only --no-renames -z "$BASE_SHA...$HEAD_SHA" > "$changed_files_file"
+
+          disallowed_files=()
+          while IFS= read -r -d '' file; do
+            if [[ "$file" != "OPEN_SOURCE_CONTRIBUTORS.md" ]]; then
+              disallowed_files+=("$file")
+            fi
+          done < "$changed_files_file"
+
+          if (( ${#disallowed_files[@]} > 0 )); then
+            echo "Pull requests targeting main may change only OPEN_SOURCE_CONTRIBUTORS.md."
+            echo "Disallowed files:"
+            printf ' - %q\n' "${disallowed_files[@]}"
+            exit 1
+          fi
+
+          echo "All changed files are allowed."
