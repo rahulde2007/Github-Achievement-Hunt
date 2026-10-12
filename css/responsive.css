@@ -1,0 +1,255 @@
+@media (max-width: 64rem) {
+  :root {
+    --container-gutter: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(21rem, 0.92fr);
+    gap: var(--space-8);
+  }
+
+  .hero-visual {
+    padding-inline: var(--space-3);
+  }
+
+  .floating-label-top {
+    right: -3%;
+  }
+
+  .floating-label-bottom {
+    left: -2%;
+  }
+
+  .footer-inner {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 56rem) {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+
+  .header-inner {
+    min-height: 4.5rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-3) 1rem var(--space-5);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    background: rgb(255 255 255 / 84%);
+    box-shadow: 0 1.5rem 2rem rgb(47 61 57 / 14%);
+    backdrop-filter: blur(24px) saturate(145%);
+    -webkit-backdrop-filter: blur(24px) saturate(145%);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 0.8rem;
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+
+  .site-nav .nav-github-link {
+    width: fit-content;
+    margin-top: var(--space-2);
+  }
+
+  .hero {
+    min-height: 0;
+    padding-block: clamp(var(--space-16), 12vw, var(--space-20));
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .hero-copy {
+    max-width: 42rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 12ch;
+  }
+
+  .hero-visual {
+    width: min(100%, 34rem);
+    justify-self: center;
+    padding-block: var(--space-6);
+  }
+
+  .floating-label-top {
+    right: -1%;
+  }
+
+  .floating-label-bottom {
+    bottom: 4%;
+    left: -1%;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .section-description {
+    max-width: 40rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    min-height: 0;
+  }
+
+  .step-icon {
+    margin-top: var(--space-5);
+  }
+
+  .progress-panel {
+    grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.65fr);
+    gap: var(--space-4);
+  }
+
+  .progress-illustration {
+    width: min(100%, 15rem);
+  }
+}
+
+@media (max-width: 36rem) {
+  :root {
+    --container-gutter: 1.25rem;
+  }
+
+  .brand-name {
+    font-size: 0.8rem;
+  }
+
+  .brand-mark {
+    width: 2.15rem;
+  }
+
+  .hero {
+    padding-block: var(--space-16) var(--space-12);
+  }
+
+  .hero-copy h1 {
+    margin-top: var(--space-5);
+  }
+
+  .hero-description {
+    margin-top: var(--space-5);
+    font-size: var(--font-size-base);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-note {
+    font-size: 0.6875rem;
+  }
+
+  .hero-visual {
+    width: 100%;
+    padding: var(--space-8) 0;
+  }
+
+  .dashboard-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+  }
+
+  .floating-label {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.58rem;
+  }
+
+  .floating-label-top {
+    top: 3%;
+    right: -2%;
+  }
+
+  .floating-label-bottom {
+    bottom: 1%;
+    left: -2%;
+  }
+
+  .steps-grid {
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  .progress-panel {
+    grid-template-columns: 1fr;
+    padding: var(--space-6);
+  }
+
+  .progress-illustration {
+    width: min(68vw, 14rem);
+    margin-top: var(--space-2);
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-inner > p {
+    flex: initial;
+    text-align: left;
+  }
+}
+
+@media (max-width: 22rem) {
+  .brand-name {
+    font-size: 0.72rem;
+  }
+
+  .brand-mark {
+    width: 1.95rem;
+  }
+
+  .hero-eyebrow,
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.11em;
+  }
+
+  .floating-label-bottom {
+    left: 0;
+  }
+}

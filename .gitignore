@@ -6,3 +6,17 @@
 !/README.md
 !/CODE_OF_CONDUCT.md
 !/CONTRIBUTING.md
+
+# Publish the static website and its GitHub Pages workflow.
+!/index.html
+!/.nojekyll
+!/css/
+!/css/**
+!/js/
+!/js/**
+!/assets/
+!/assets/images/
+!/assets/images/**
+!/.github/
+!/.github/workflows/
+!/.github/workflows/deploy-pages.yml
