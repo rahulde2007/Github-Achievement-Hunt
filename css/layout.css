@@ -2,9 +2,7 @@ body {
   position: relative;
   isolation: isolate;
   overflow-x: clip;
-  background:
-    radial-gradient(ellipse at 50% -32rem, rgb(49 47 101 / 28%), transparent 58rem),
-    var(--color-background);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-base);
@@ -23,21 +21,23 @@ body::after {
 }
 
 body::before {
-  opacity: 0.23;
   background-image:
-    linear-gradient(rgb(151 166 199 / 5%) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(151 166 199 / 5%) 1px, transparent 1px);
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
   background-position: center top;
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 70%);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, rgb(0 0 0 / 72%) 55%, transparent 100%);
 }
 
 body::after {
-  opacity: 0.78;
   background:
-    radial-gradient(ellipse at 78% 24%, rgb(66 81 183 / 10%), transparent 34rem),
-    radial-gradient(ellipse at 18% 63%, rgb(117 66 190 / 9%), transparent 38rem);
-  animation: ambient-shift 24s ease-in-out infinite alternate;
+    radial-gradient(circle at 50% 38%, rgb(255 255 255 / 60%), transparent 45%),
+    linear-gradient(
+      135deg,
+      rgb(211 248 235 / 35%),
+      transparent 40%,
+      rgb(224 220 255 / 30%)
+    );
 }
 
 .container {
@@ -50,11 +50,22 @@ body::after {
 }
 
 .site-header {
-  position: relative;
+  position: sticky;
   z-index: 5;
-  border-bottom: 1px solid var(--color-border);
-  background: rgb(8 10 18 / 76%);
-  backdrop-filter: blur(1.25rem);
+  top: 1rem;
+  width: min(calc(100% - 2 * var(--container-gutter)), var(--container-width));
+  margin: 1rem auto 0;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 1.5rem;
+  background: var(--color-surface-glass);
+  box-shadow: 0 1.5rem 3.75rem rgb(47 61 57 / 15%), inset 0 1px 0 rgb(255 255 255 / 82%);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+}
+
+.site-header > .container {
+  width: 100%;
+  padding-inline: clamp(0.65rem, 1.8vw, 1.25rem);
 }
 
 .header-inner,
@@ -67,18 +78,18 @@ body::after {
 }
 
 .header-inner {
-  min-height: 5rem;
+  min-height: 4.5rem;
   justify-content: space-between;
   gap: var(--space-6);
 }
 
 .site-nav {
-  gap: clamp(var(--space-4), 3vw, var(--space-8));
+  gap: clamp(0.15rem, 0.7vw, 0.6rem);
 }
 
 .hero {
   isolation: isolate;
-  min-height: min(51rem, calc(100svh - 5rem));
+  min-height: min(51rem, calc(100svh - 6rem));
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -143,14 +154,14 @@ body::after {
   max-width: 96%;
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  border: 1px solid rgb(167 139 250 / 9%);
+  border: 1px solid rgb(38 119 101 / 10%);
   border-radius: 50%;
 }
 
 .orbit-two {
   width: 37rem;
   max-width: 112%;
-  border-color: rgb(101 167 255 / 7%);
+  border-color: rgb(118 108 167 / 9%);
 }
 
 .hero-glow {
@@ -169,7 +180,7 @@ body::after {
   bottom: 0;
   left: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(167 139 250 / 30%), transparent);
+  background: linear-gradient(90deg, transparent, rgb(38 119 101 / 22%), transparent);
 }
 
 .scroll-cue {
@@ -253,7 +264,7 @@ body::after {
 .how-section {
   padding-block: clamp(var(--space-20), 10vw, 8rem);
   border-block: 1px solid var(--color-border);
-  background: linear-gradient(180deg, rgb(14 17 28 / 62%), rgb(11 13 22 / 58%));
+  background: linear-gradient(180deg, rgb(255 255 255 / 38%), rgb(255 255 255 / 16%));
 }
 
 .centered-heading {
@@ -329,7 +340,8 @@ body::after {
 .site-footer {
   padding-block: var(--space-8);
   border-top: 1px solid var(--color-border);
-  background: rgb(8 10 18 / 60%);
+  background: rgb(255 255 255 / 24%);
+  backdrop-filter: blur(15px);
 }
 
 .footer-inner {

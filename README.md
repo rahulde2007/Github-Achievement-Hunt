@@ -496,6 +496,11 @@ The [GitHub profile reference](https://docs.github.com/en/account-and-profile/re
 - Image `alt` text is provided throughout. If an external animation service is unavailable, the static title, tagline, navigation, and README content remain readable.
 - GitHub and the animation provider control their hosted assets. If an image or animation stops loading, replace it only after verifying a trustworthy source.
 
+## Run the website
+
+The Achievement Explorer is available immediately; no account, login, Firebase setup, or build
+step is required. Serve the repository as a static site (for example, run
+`python -m http.server 8000` from the project directory) and open `http://localhost:8000`.
 
 ---
 

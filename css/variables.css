@@ -1,26 +1,27 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --color-background: #090b12;
-  --color-surface: #101420;
-  --color-surface-raised: #151b2a;
-  --color-surface-glass: rgb(19 24 38 / 76%);
-  --color-border: rgb(151 166 199 / 14%);
-  --color-border-strong: rgb(151 166 199 / 24%);
-  --color-text: #f4f6fc;
-  --color-text-muted: #a6aec2;
-  --color-text-subtle: #929db3;
-  --color-accent: #a78bfa;
-  --color-accent-bright: #c0aaff;
-  --color-blue: #65a7ff;
-  --color-success: #70dfc1;
+  --color-background: #eef2ed;
+  --color-surface: rgb(255 255 255 / 53%);
+  --color-surface-raised: rgb(255 255 255 / 70%);
+  --color-surface-glass: rgb(255 255 255 / 53%);
+  --color-border: rgb(38 55 52 / 10%);
+  --color-border-strong: rgb(38 55 52 / 18%);
+  --color-text: #151b1b;
+  --color-text-muted: #56615f;
+  --color-text-subtle: #687271;
+  --color-accent: #8cf0ca;
+  --color-accent-bright: #267765;
+  --color-blue: #766ca7;
+  --color-success: #267765;
 
-  --gradient-brand: linear-gradient(110deg, var(--color-accent) 4%, var(--color-blue) 96%);
-  --gradient-surface: linear-gradient(145deg, rgb(22 27 43 / 94%), rgb(14 18 29 / 96%));
-  --gradient-glow: radial-gradient(ellipse, rgb(109 79 212 / 20%), transparent 68%);
+  --gradient-brand: linear-gradient(140deg, #a6f5d8 0%, #7be9c4 48%, #65dfba 100%);
+  --gradient-surface: linear-gradient(145deg, rgb(255 255 255 / 72%), rgb(255 255 255 / 40%));
+  --gradient-glow: radial-gradient(ellipse, rgb(108 225 190 / 25%), transparent 68%);
 
-  --font-family-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --font-family-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-family-display: "Instrument Serif", Georgia, serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -48,9 +49,9 @@
   --radius-xl: 2rem;
   --radius-pill: 999px;
 
-  --shadow-card: 0 1.5rem 5rem rgb(0 0 0 / 24%);
-  --shadow-button: 0 0.5rem 1.75rem rgb(121 92 220 / 28%);
-  --glow-accent: 0 0 2.5rem rgb(167 139 250 / 20%);
+  --shadow-card: 0 1.5rem 3.75rem rgb(47 61 57 / 15%), inset 0 1px 0 rgb(255 255 255 / 82%);
+  --shadow-button: 0 0.6rem 1.4rem rgb(74 193 157 / 23%);
+  --glow-accent: 0 0 2.5rem rgb(108 225 190 / 25%);
 
   --container-width: 72rem;
   --container-gutter: clamp(1.25rem, 5vw, 2.5rem);

@@ -1,7 +1,7 @@
 .hero-glow {
   background:
-    radial-gradient(ellipse at 32% 40%, rgb(113 78 213 / 21%), transparent 62%),
-    radial-gradient(ellipse at 71% 57%, rgb(63 109 204 / 14%), transparent 65%);
+    radial-gradient(ellipse at 32% 40%, rgb(108 225 190 / 24%), transparent 62%),
+    radial-gradient(ellipse at 71% 57%, rgb(173 164 223 / 18%), transparent 65%);
   animation: glow-drift 20s ease-in-out infinite alternate;
 }
 
