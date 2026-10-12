@@ -1,0 +1,120 @@
+.hero-glow {
+  background:
+    radial-gradient(ellipse at 32% 40%, rgb(113 78 213 / 21%), transparent 62%),
+    radial-gradient(ellipse at 71% 57%, rgb(63 109 204 / 14%), transparent 65%);
+  animation: glow-drift 20s ease-in-out infinite alternate;
+}
+
+.hero-copy {
+  animation: hero-enter 760ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-eyebrow {
+  animation: hero-enter 540ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-copy h1 {
+  animation: hero-enter 720ms cubic-bezier(0.2, 0.7, 0.2, 1) 70ms both;
+}
+
+.hero-description,
+.hero-actions,
+.hero-note {
+  animation: hero-enter 720ms cubic-bezier(0.2, 0.7, 0.2, 1) 150ms both;
+}
+
+.hero-visual {
+  animation: visual-enter 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 100ms both;
+}
+
+.step-card {
+  animation: card-enter 520ms ease both;
+}
+
+@keyframes glow-drift {
+  from {
+    opacity: 0.68;
+    transform: translate3d(-1%, -1%, 0) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(1%, 1%, 0) scale(1.04);
+  }
+}
+
+@keyframes ambient-shift {
+  from {
+    opacity: 0.58;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0.88;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes visual-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes label-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes ring-turn {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

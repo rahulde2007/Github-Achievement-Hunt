@@ -1,0 +1,338 @@
+body {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  background:
+    radial-gradient(ellipse at 50% -32rem, rgb(49 47 101 / 28%), transparent 58rem),
+    var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+body::before {
+  opacity: 0.23;
+  background-image:
+    linear-gradient(rgb(151 166 199 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(151 166 199 / 5%) 1px, transparent 1px);
+  background-position: center top;
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+}
+
+body::after {
+  opacity: 0.78;
+  background:
+    radial-gradient(ellipse at 78% 24%, rgb(66 81 183 / 10%), transparent 34rem),
+    radial-gradient(ellipse at 18% 63%, rgb(117 66 190 / 9%), transparent 38rem);
+  animation: ambient-shift 24s ease-in-out infinite alternate;
+}
+
+.container {
+  width: min(100% - 2 * var(--container-gutter), var(--container-width));
+  margin-inline: auto;
+}
+
+.section-shell {
+  position: relative;
+}
+
+.site-header {
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(8 10 18 / 76%);
+  backdrop-filter: blur(1.25rem);
+}
+
+.header-inner,
+.site-nav,
+.site-brand,
+.hero-actions,
+.footer-inner {
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  min-height: 5rem;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.site-nav {
+  gap: clamp(var(--space-4), 3vw, var(--space-8));
+}
+
+.hero {
+  isolation: isolate;
+  min-height: min(51rem, calc(100svh - 5rem));
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(24rem, 0.97fr);
+  align-items: center;
+  gap: clamp(var(--space-10), 6vw, var(--space-16));
+}
+
+.hero-copy {
+  max-width: 39rem;
+}
+
+.hero-copy h1 {
+  max-width: 9ch;
+  margin-top: var(--space-6);
+}
+
+.hero-description {
+  max-width: 35rem;
+  margin-top: var(--space-6);
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.hero-note {
+  max-width: 30rem;
+  margin-top: var(--space-5);
+}
+
+.hero-visual {
+  position: relative;
+  width: min(100%, 36rem);
+  justify-self: end;
+  padding: var(--space-10) var(--space-6);
+  isolation: isolate;
+}
+
+.dashboard-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 31rem);
+  margin-inline: auto;
+}
+
+.visual-orbit {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 31rem;
+  max-width: 96%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(167 139 250 / 9%);
+  border-radius: 50%;
+}
+
+.orbit-two {
+  width: 37rem;
+  max-width: 112%;
+  border-color: rgb(101 167 255 / 7%);
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: -1;
+  top: -9rem;
+  right: -8rem;
+  width: min(74vw, 68rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.hero-bottom-line {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(167 139 250 / 30%), transparent);
+}
+
+.scroll-cue {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--space-6);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  transform: translateX(-50%);
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.035em;
+  text-decoration: none;
+}
+
+.explorer-section {
+  padding-block: clamp(var(--space-20), 11vw, 9rem);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-10);
+}
+
+.section-heading-copy h2 {
+  margin-top: var(--space-5);
+}
+
+.section-description {
+  max-width: 29rem;
+  padding-bottom: var(--space-2);
+}
+
+.explorer-toolbar {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-10);
+}
+
+.search-field {
+  position: relative;
+  width: min(100%, 39rem);
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-4);
+}
+
+.filter-control {
+  flex: 1 1 11rem;
+  min-width: min(100%, 9rem);
+}
+
+.explorer-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.explorer-empty {
+  margin-top: var(--space-5);
+}
+
+.how-section {
+  padding-block: clamp(var(--space-20), 10vw, 8rem);
+  border-block: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgb(14 17 28 / 62%), rgb(11 13 22 / 58%));
+}
+
+.centered-heading {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.centered-heading h2 {
+  margin-top: var(--space-5);
+}
+
+.centered-heading > p:last-child {
+  max-width: 33rem;
+  margin: var(--space-5) auto 0;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-12);
+}
+
+.step-card {
+  min-height: 19rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.progress-section {
+  padding-block: clamp(var(--space-16), 9vw, var(--space-24));
+}
+
+.progress-panel {
+  position: relative;
+  min-height: 23rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.8fr);
+  align-items: center;
+  gap: var(--space-8);
+  padding: clamp(var(--space-8), 7vw, var(--space-16));
+  overflow: hidden;
+}
+
+.progress-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+}
+
+.progress-copy h2 {
+  margin-top: var(--space-5);
+}
+
+.progress-copy > p:not(.eyebrow) {
+  max-width: 32rem;
+  margin-top: var(--space-5);
+}
+
+.progress-copy .button {
+  margin-top: var(--space-6);
+}
+
+.progress-illustration {
+  position: relative;
+  width: min(100%, 19rem);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.site-footer {
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  background: rgb(8 10 18 / 60%);
+}
+
+.footer-inner {
+  justify-content: space-between;
+  gap: var(--space-6);
+}

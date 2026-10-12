@@ -55,6 +55,12 @@ Original GitHub-hosted artwork is the centerpiece of this guide. Select a badge 
 <table>
 <tr>
 <td align="center" width="25%">
+<a href="#quickdraw"><img src="https://github.com/images/modules/profile/achievements/quickdraw-default.png" width="112" alt="Original GitHub Quickdraw achievement badge" /></a><br />
+<strong><a href="#quickdraw">Quickdraw</a></strong><br />
+Historically associated with fast resolutions<br />
+<sub>VERIFIED ARTWORK · AVAILABILITY UNCERTAIN</sub>
+</td>
+<td align="center" width="25%">
 <a href="#pull-shark"><img src="https://github.com/images/modules/profile/achievements/pull-shark-default.png" width="112" alt="Original GitHub Pull Shark achievement badge" /></a><br />
 <strong><a href="#pull-shark">Pull Shark</a></strong><br />
 Merged pull-request activity<br />
@@ -72,24 +78,18 @@ Commonly associated with merging without review<br />
 Helpful answers accepted in Discussions<br />
 <sub>VERIFIED ARTWORK · ACTIVITY GUIDE</sub>
 </td>
-<td align="center" width="25%">
-<a href="#quickdraw"><img src="https://github.com/images/modules/profile/achievements/quickdraw-default.png" width="112" alt="Original GitHub Quickdraw achievement badge" /></a><br />
-<strong><a href="#quickdraw">Quickdraw</a></strong><br />
-Historically associated with fast resolutions<br />
-<sub>VERIFIED ARTWORK · AVAILABILITY UNCERTAIN</sub>
-</td>
 </tr>
 <tr>
-<td align="center" width="25%">
-<a href="#pair-extraordinaire"><img src="https://github.com/images/modules/profile/achievements/pair-extraordinaire-default.png" width="112" alt="Original GitHub Pair Extraordinaire achievement badge" /></a><br />
-<strong><a href="#pair-extraordinaire">Pair Extraordinaire</a></strong><br />
-Genuine pair or co-authored work<br />
-<sub>VERIFIED ARTWORK · ACTIVITY GUIDE</sub>
-</td>
 <td align="center" width="25%">
 <a href="#starstruck"><img src="https://github.com/images/modules/profile/achievements/starstruck-default.png" width="112" alt="Original GitHub Starstruck achievement badge" /></a><br />
 <strong><a href="#starstruck">Starstruck</a></strong><br />
 Community stars for a repository<br />
+<sub>VERIFIED ARTWORK · ACTIVITY GUIDE</sub>
+</td>
+<td align="center" width="25%">
+<a href="#pair-extraordinaire"><img src="https://github.com/images/modules/profile/achievements/pair-extraordinaire-default.png" width="112" alt="Original GitHub Pair Extraordinaire achievement badge" /></a><br />
+<strong><a href="#pair-extraordinaire">Pair Extraordinaire</a></strong><br />
+Genuine pair or co-authored work<br />
 <sub>VERIFIED ARTWORK · ACTIVITY GUIDE</sub>
 </td>
 <td align="center" width="25%">
@@ -113,6 +113,33 @@ Legacy badge; criteria not confirmed<br />
 
 > [!TIP]
 > Each guide separates the **commonly associated activity** from the **officially documented process**. Where GitHub has not published award rules or thresholds, none are inferred. Make useful contributions first; check the profile afterward.
+
+### Quickdraw
+
+<div align="center">
+<img src="https://github.com/images/modules/profile/achievements/quickdraw-default.png" width="112" alt="Original GitHub Quickdraw achievement badge" />
+</div>
+
+**Recognizes:** Historically associated with resolving an issue or pull request very quickly, often described as within five minutes. This timing rule is **not confirmed** in the GitHub Docs reviewed.
+
+**Eligibility & tiers:** Exact requirements and tier rules are not publicly verified in the cited official docs. Do not rely on a short timer as an official rule.
+
+**Availability:** `AVAILABILITY UNCERTAIN` — a live image URL does not prove the achievement can still be earned. No official current availability statement was found.
+
+**A responsible approach**
+
+1. Do not create or close issues or pull requests to race a clock.
+2. If a real issue is resolved, document the solution and close it according to project process.
+3. If a pull request is no longer needed, explain why and close it respectfully.
+4. Check GitHub's current profile UI and official announcements; treat it as historical unless GitHub confirms otherwise.
+
+**Example:** A maintainer closes a duplicate report after linking the canonical issue and explaining where the discussion continues. The action is for project clarity, not a badge.
+
+**Limits:** Permissions and project conventions apply. The commonly repeated timing rule and current earnability remain unverified; no result or timeframe can be promised.
+
+**Official process:** [About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) · [Pull requests](https://docs.github.com/en/pull-requests/reference/pull-requests)
+
+<sub><a href="#official-achievement-badge-gallery">↑ Back to badge gallery</a></sub>
 
 ### Pull Shark
 
@@ -200,30 +227,32 @@ Legacy badge; criteria not confirmed<br />
 
 <sub><a href="#official-achievement-badge-gallery">↑ Back to badge gallery</a></sub>
 
-### Quickdraw
+### Starstruck
 
 <div align="center">
-<img src="https://github.com/images/modules/profile/achievements/quickdraw-default.png" width="112" alt="Original GitHub Quickdraw achievement badge" />
+<img src="https://github.com/images/modules/profile/achievements/starstruck-default.png" width="112" alt="Original GitHub Starstruck achievement badge" />
 </div>
 
-**Recognizes:** Historically associated with resolving an issue or pull request very quickly, often described as within five minutes. This timing rule is **not confirmed** in the GitHub Docs reviewed.
+**Recognizes:** A repository's popularity, represented by stars, commonly described in relation to a repository you created.
 
-**Eligibility & tiers:** Exact requirements and tier rules are not publicly verified in the cited official docs. Do not rely on a short timer as an official rule.
+**Eligibility & tiers:** Exact ownership, counting, and award thresholds are not specified in the official docs reviewed. Tier variants exist in GitHub-hosted artwork, but no official cutoff table was found.
 
-**Availability:** `AVAILABILITY UNCERTAIN` — a live image URL does not prove the achievement can still be earned. No official current availability statement was found.
+**Availability:** `AVAILABILITY UNCERTAIN` — image is live; award availability and thresholds are not confirmed in public docs.
 
-**A responsible approach**
+**A legitimate path**
 
-1. Do not create or close issues or pull requests to race a clock.
-2. If a real issue is resolved, document the solution and close it according to project process.
-3. If a pull request is no longer needed, explain why and close it respectfully.
-4. Check GitHub's current profile UI and official announcements; treat it as historical unless GitHub confirms otherwise.
+1. Build a useful project that solves a real problem or teaches something clearly.
+2. Write a concise README with setup steps, examples, and limitations.
+3. Maintain the project: triage issues, review contributions, and publish meaningful releases.
+4. Share it where relevant, follow community rules, and avoid unsolicited promotion.
+5. Treat stars as a signal of interest, not a target to manipulate.
+6. Check your profile for any achievement and its displayed tier.
 
-**Example:** A maintainer closes a duplicate report after linking the canonical issue and explaining where the discussion continues. The action is for project clarity, not a badge.
+**Example:** Publish a well-documented accessibility testing tool, respond to user reports, and accept thoughtful improvements.
 
-**Limits:** Permissions and project conventions apply. The commonly repeated timing rule and current earnability remain unverified; no result or timeframe can be promised.
+**Limits:** Stars come from other users choosing to save a repository. GitHub Docs explain starring but do not guarantee a badge or publish thresholds.
 
-**Official process:** [About issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) · [Pull requests](https://docs.github.com/en/pull-requests/reference/pull-requests)
+**Official process:** [Saving repositories with stars](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) · [Quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
 
 <sub><a href="#official-achievement-badge-gallery">↑ Back to badge gallery</a></sub>
 
@@ -253,35 +282,6 @@ Legacy badge; criteria not confirmed<br />
 **Limits:** Genuine collaboration and merged work are central to the commonly displayed description. The co-author and maintainers are involved; never fabricate credit.
 
 **Official process:** [Creating a pull request](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request) · [Creating a commit with multiple authors](https://docs.github.com/en/pull-requests/how-tos/commit-changes/creating-a-commit-with-multiple-authors)
-
-<sub><a href="#official-achievement-badge-gallery">↑ Back to badge gallery</a></sub>
-
-### Starstruck
-
-<div align="center">
-<img src="https://github.com/images/modules/profile/achievements/starstruck-default.png" width="112" alt="Original GitHub Starstruck achievement badge" />
-</div>
-
-**Recognizes:** A repository's popularity, represented by stars, commonly described in relation to a repository you created.
-
-**Eligibility & tiers:** Exact ownership, counting, and award thresholds are not specified in the official docs reviewed. Tier variants exist in GitHub-hosted artwork, but no official cutoff table was found.
-
-**Availability:** `AVAILABILITY UNCERTAIN` — image is live; award availability and thresholds are not confirmed in public docs.
-
-**A legitimate path**
-
-1. Build a useful project that solves a real problem or teaches something clearly.
-2. Write a concise README with setup steps, examples, and limitations.
-3. Maintain the project: triage issues, review contributions, and publish meaningful releases.
-4. Share it where relevant, follow community rules, and avoid unsolicited promotion.
-5. Treat stars as a signal of interest, not a target to manipulate.
-6. Check your profile for any achievement and its displayed tier.
-
-**Example:** Publish a well-documented accessibility testing tool, respond to user reports, and accept thoughtful improvements.
-
-**Limits:** Stars come from other users choosing to save a repository. GitHub Docs explain starring but do not guarantee a badge or publish thresholds.
-
-**Official process:** [Saving repositories with stars](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars) · [Quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
 
 <sub><a href="#official-achievement-badge-gallery">↑ Back to badge gallery</a></sub>
 
@@ -440,12 +440,12 @@ Use these unchecked boxes for your own notes. **Check your GitHub profile to con
 
 ### Activity achievements
 
+- [ ] **Quickdraw** — trigger and current availability are uncertain; verify with GitHub.
 - [ ] **Pull Shark** — check profile for badge and displayed tier.
 - [ ] **YOLO** — check profile; never skip required review to pursue it.
 - [ ] **Galaxy Brain** — check profile after accepted Discussion answers.
-- [ ] **Quickdraw** — trigger and current availability are uncertain; verify with GitHub.
-- [ ] **Pair Extraordinaire** — check profile after genuine co-authored collaboration.
 - [ ] **Starstruck** — check profile; stars and thresholds are not guaranteed.
+- [ ] **Pair Extraordinaire** — check profile after genuine co-authored collaboration.
 
 ### Historical badges
 
