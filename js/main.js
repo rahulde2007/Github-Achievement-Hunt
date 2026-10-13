@@ -13,6 +13,37 @@ function getRequiredElement(selector) {
   return element;
 }
 
+function initializeTheme() {
+  const themeToggle = getRequiredElement("#theme-toggle");
+  const themeColorMeta = getRequiredElement('meta[name="theme-color"]');
+
+  function setTheme(theme, persist) {
+    const isDark = theme === "dark";
+    document.documentElement.dataset.theme = theme;
+    themeColorMeta.setAttribute("content", isDark ? "#111917" : "#eef2ed");
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+
+    const label = `Switch to ${isDark ? "light" : "dark"} mode`;
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.title = label;
+
+    if (persist) {
+      try {
+        localStorage.setItem("gh-theme", theme);
+      } catch (error) {
+        console.warn("Could not save the theme preference.", error);
+      }
+    }
+  }
+
+  setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light", false);
+  themeToggle.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme, true);
+  });
+}
+
 function initializeNavigationMenu() {
   const menuButton = getRequiredElement(".nav-toggle");
   const navigation = getRequiredElement("#primary-navigation");
@@ -59,7 +90,7 @@ function initializeNavigationMenu() {
 
   window.addEventListener("resize", () => {
     if (
-      !window.matchMedia("(max-width: 48rem)").matches &&
+      !window.matchMedia("(max-width: 56rem)").matches &&
       menuButton.getAttribute("aria-expanded") === "true"
     ) {
       closeMenu();
@@ -83,7 +114,6 @@ function initializeAchievementExplorer() {
   const dialogBadge = getRequiredElement("#dialog-badge");
   const dialogCategory = getRequiredElement("#dialog-category");
   const dialogTitle = getRequiredElement("#dialog-title");
-  const dialogVerification = getRequiredElement("#dialog-verification");
   const dialogDescription = getRequiredElement("#dialog-description");
   const dialogAvailability = getRequiredElement("#dialog-availability");
   const dialogRequirements = getRequiredElement("#dialog-requirements");
@@ -118,7 +148,6 @@ function initializeAchievementExplorer() {
     dialogBadge.alt = achievement.artwork.alt;
     dialogCategory.textContent = achievement.category;
     dialogTitle.textContent = achievement.name;
-    dialogVerification.textContent = "Profile status: unknown — not connected or verified";
     dialogDescription.textContent = achievement.description;
     dialogAvailability.textContent = achievement.availability;
     dialogRequirements.textContent = `${guide.exactRequirement} ${achievement.requirements}`;
@@ -273,5 +302,6 @@ function initializeAchievementExplorer() {
   updateExplorer();
 }
 
+initializeTheme();
 initializeNavigationMenu();
 initializeAchievementExplorer();

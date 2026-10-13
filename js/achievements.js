@@ -5,7 +5,6 @@ const achievementsData = [
     description:
       "A profile achievement historically associated with resolving an issue or pull request quickly.",
     category: "Issues",
-    difficulty: null,
     status: "unknown",
     artwork: {
       path: "./assets/images/quickdraw-default.png",
@@ -28,7 +27,6 @@ const achievementsData = [
     description:
       "A GitHub profile achievement commonly associated with merged pull-request activity.",
     category: "Pull requests",
-    difficulty: null,
     status: "unknown",
     artwork: {
       path: "./assets/images/pull-shark-default.png",
@@ -51,7 +49,6 @@ const achievementsData = [
     description:
       "A GitHub profile achievement commonly associated with merging a pull request without review.",
     category: "Pull requests",
-    difficulty: null,
     status: "unknown",
     artwork: {
       path: "./assets/images/yolo-default.png",
@@ -74,7 +71,6 @@ const achievementsData = [
     description:
       "A GitHub profile achievement commonly associated with helpful answers accepted in Discussions.",
     category: "Discussions",
-    difficulty: null,
     status: "unknown",
     artwork: {
       path: "./assets/images/galaxy-brain-default.png",
@@ -98,7 +94,6 @@ const achievementsData = [
     description:
       "A GitHub profile achievement commonly associated with stars received by a repository.",
     category: "Repositories",
-    difficulty: null,
     status: "unknown",
     artwork: {
       path: "./assets/images/starstruck-default.png",
@@ -121,9 +116,8 @@ const achievementsData = [
     description:
       "A GitHub profile achievement commonly associated with genuine co-authored contributions.",
     category: "Collaboration",
-    difficulty: null,
     status: "unknown",
-    artwork: {
+    artwork:     {
       path: "./assets/images/pair-extraordinaire-default.png",
       alt: "Pair Extraordinaire badge artwork showing two peas in a pod",
       source: "https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png",

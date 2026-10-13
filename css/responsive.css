@@ -8,18 +8,6 @@
     gap: var(--space-8);
   }
 
-  .hero-visual {
-    padding-inline: var(--space-3);
-  }
-
-  .floating-label-top {
-    right: -3%;
-  }
-
-  .floating-label-bottom {
-    left: -2%;
-  }
-
   .footer-inner {
     flex-wrap: wrap;
   }
@@ -50,8 +38,8 @@
     padding: var(--space-3) 1rem var(--space-5);
     border: 1px solid var(--color-border-strong);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    background: rgb(255 255 255 / 84%);
-    box-shadow: 0 1.5rem 2rem rgb(47 61 57 / 14%);
+    background: var(--color-surface-glass);
+    box-shadow: 0 1.5rem 2rem rgb(var(--color-shadow-rgb) / 14%);
     backdrop-filter: blur(24px) saturate(145%);
     -webkit-backdrop-filter: blur(24px) saturate(145%);
   }
@@ -73,6 +61,11 @@
     margin-top: var(--space-2);
   }
 
+  .site-nav .theme-toggle {
+    align-self: flex-start;
+    margin: var(--space-3) 0 0 0.8rem;
+  }
+
   .hero {
     min-height: 0;
     padding-block: clamp(var(--space-16), 12vw, var(--space-20));
@@ -89,21 +82,6 @@
 
   .hero-copy h1 {
     max-width: 12ch;
-  }
-
-  .hero-visual {
-    width: min(100%, 34rem);
-    justify-self: center;
-    padding-block: var(--space-6);
-  }
-
-  .floating-label-top {
-    right: -1%;
-  }
-
-  .floating-label-bottom {
-    bottom: 4%;
-    left: -1%;
   }
 
   .scroll-cue {
@@ -132,19 +110,15 @@
     margin-top: var(--space-5);
   }
 
-  .progress-panel {
-    grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.65fr);
-    gap: var(--space-4);
-  }
-
-  .progress-illustration {
-    width: min(100%, 15rem);
-  }
 }
 
 @media (max-width: 36rem) {
   :root {
     --container-gutter: 1.25rem;
+  }
+
+  .header-inner {
+    gap: var(--space-2);
   }
 
   .brand-name {
@@ -183,44 +157,9 @@
     font-size: 0.6875rem;
   }
 
-  .hero-visual {
-    width: 100%;
-    padding: var(--space-8) 0;
-  }
-
-  .dashboard-card {
-    padding: var(--space-5);
-    border-radius: var(--radius-md);
-  }
-
-  .floating-label {
-    padding: 0.5rem 0.65rem;
-    font-size: 0.58rem;
-  }
-
-  .floating-label-top {
-    top: 3%;
-    right: -2%;
-  }
-
-  .floating-label-bottom {
-    bottom: 1%;
-    left: -2%;
-  }
-
   .steps-grid {
     gap: var(--space-4);
     margin-top: var(--space-8);
-  }
-
-  .progress-panel {
-    grid-template-columns: 1fr;
-    padding: var(--space-6);
-  }
-
-  .progress-illustration {
-    width: min(68vw, 14rem);
-    margin-top: var(--space-2);
   }
 
   .footer-inner {
@@ -249,7 +188,4 @@
     letter-spacing: 0.11em;
   }
 
-  .floating-label-bottom {
-    left: 0;
-  }
 }

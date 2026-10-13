@@ -37,7 +37,7 @@
 
 .achievement-card:hover {
   transform: translateY(-4px);
-  border-color: rgb(38 119 101 / 28%);
+  border-color: rgb(var(--color-accent-rgb) / 28%);
   box-shadow: var(--shadow-card);
 }
 
@@ -66,7 +66,7 @@
 
 .achievement-details-button:hover {
   transform: translateY(-2px);
-  border-color: rgb(38 119 101 / 34%);
+  border-color: rgb(var(--color-accent-rgb) / 34%);
   background: rgb(140 240 202 / 20%);
   box-shadow: 0 0.5rem 1.4rem rgb(74 193 157 / 13%);
 }
@@ -98,7 +98,11 @@
   padding: clamp(var(--space-5), 5vw, var(--space-8));
   background:
     radial-gradient(ellipse at 100% 0, rgb(140 240 202 / 12%), transparent 55%),
-    linear-gradient(148deg, rgb(255 255 255 / 98%), rgb(238 242 237 / 98%));
+    linear-gradient(
+      148deg,
+      rgb(var(--color-glass-rgb) / 98%),
+      var(--color-background-dialog-end)
+    );
 }
 
 .dialog-close {
@@ -145,7 +149,7 @@
   overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
-  background: rgb(255 255 255 / 60%);
+  background: rgb(var(--color-glass-rgb) / 60%);
   box-shadow: var(--shadow-card);
 }
 
@@ -163,13 +167,6 @@
   margin-top: var(--space-2);
   font-size: clamp(1.65rem, 5vw, 2.5rem);
   overflow-wrap: anywhere;
-}
-
-.dialog-verification {
-  margin-top: var(--space-2);
-  color: #805a13;
-  font-size: var(--font-size-xs);
-  line-height: 1.5;
 }
 
 .dialog-description {
@@ -190,7 +187,7 @@
   padding: var(--space-5);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: rgb(255 255 255 / 45%);
+  background: rgb(var(--color-glass-rgb) / 45%);
 }
 
 .dialog-section h3 {
@@ -262,10 +259,6 @@
     align-items: flex-start;
     gap: var(--space-3);
     padding-right: 2rem;
-  }
-
-  .dialog-verification {
-    font-size: 0.68rem;
   }
 
   .dialog-section {

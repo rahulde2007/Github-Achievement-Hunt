@@ -5,19 +5,6 @@ function createTextElement(tagName, className, text) {
   return element;
 }
 
-function getStatusLabel(status) {
-  switch (status) {
-    case "unlocked":
-      return "Unlocked";
-    case "locked":
-      return "Locked";
-    case "unknown":
-      return "Profile status unknown";
-    default:
-      return "Status unavailable";
-  }
-}
-
 function createAchievementCard(achievement) {
   const card = document.createElement("article");
   const header = document.createElement("div");
@@ -25,11 +12,6 @@ function createAchievementCard(achievement) {
   const logo = document.createElement("img");
   const labels = document.createElement("div");
   const category = createTextElement("span", "achievement-category", achievement.category);
-  const status = createTextElement(
-    "span",
-    `achievement-status status-${achievement.status}`,
-    getStatusLabel(achievement.status),
-  );
   const title = createTextElement("h3", "achievement-title", achievement.name);
   const description = createTextElement(
     "p",
@@ -70,7 +52,7 @@ function createAchievementCard(achievement) {
   detailsButton.setAttribute("aria-label", `View ${achievement.name} instructions`);
   detailsButton.textContent = "View instructions";
 
-  labels.append(category, status);
+  labels.append(category);
   logoFrame.append(logo);
   header.append(logoFrame, labels);
   card.append(header, title, description, detailsButton);

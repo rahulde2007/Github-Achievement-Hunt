@@ -10,6 +10,25 @@
       content="Understand GitHub profile achievements and explore a thoughtful path toward meaningful open-source contributions."
     />
     <title>GitHub Achievement Hunt — Explore. Contribute. Achieve.</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        try {
+          const savedTheme = localStorage.getItem("gh-theme");
+          root.dataset.theme =
+            savedTheme === "light" || savedTheme === "dark"
+              ? savedTheme
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+        } catch (error) {
+          console.warn("Could not read the saved theme preference.", error);
+          root.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -60,6 +79,25 @@
             GitHub
             <span aria-hidden="true">↗</span>
           </a>
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+            title="Switch to dark mode"
+          >
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+              ></path>
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"></path>
+            </svg>
+            <span class="visually-hidden">Toggle color theme</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -172,7 +210,7 @@
             <p class="results-summary" id="results-summary" aria-live="polite" aria-atomic="true"></p>
             <p class="status-disclaimer">
               <span class="status-disclaimer-dot" aria-hidden="true"></span>
-              Profile status is not connected or verified
+              Profile status is not verified by this guide
             </p>
           </div>
 
@@ -260,7 +298,6 @@
           <div class="dialog-heading-copy">
             <p class="eyebrow" id="dialog-category"></p>
             <h2 id="dialog-title"></h2>
-            <p class="dialog-verification" id="dialog-verification"></p>
           </div>
         </div>
         <p class="dialog-description" id="dialog-description"></p>
